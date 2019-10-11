@@ -26,14 +26,14 @@ vector<char> fix_code(vector<char>& arr, int n = -1) {
 	//cout << ans_wr;
 	if (ans_wr)
 		arr[ans_wr - 1] = (arr[ans_wr - 1] == '1' ? '0' : '1');
-	vector<char> ret(n - floor(log2(n)) - 1);
+	vector<char> ret;
 	int notPrint = 1;
 	int it2 = 0;
 	for (int i = 0; i < n; i++) {
 		if (i + 1 == notPrint)
 			notPrint *= 2;
 		else
-			ret[it2++] = arr[i];
+			ret.push_back(arr[i]);
 	}
 	return ret;
 }
@@ -66,7 +66,7 @@ signed main() {
 		int symb_ans = 0;
 		for (int j = i; j < i + 8 && j < ans_bit.size(); j++) {
 			if (ans_bit[j] == '1') {
-				symb_ans += (1 << -1*(j - i - 7));
+				symb_ans += (1 << abs(-1*(j - i - 7)));
 			}
 		}
 		cout << (char)(symb_ans);
