@@ -66,7 +66,7 @@ signed main() {
 		int symb_ans = 0;
 		for (int j = i; j < i + 8 && j < ans_bit.size(); j++) {
 			if (ans_bit[j] == '1') {
-				symb_ans += (1 << abs(-1*(j - i - 7)));
+				symb_ans += (pow(2, abs(-1*(j - i - 7))));
 			}
 		}
 		cout << (char)(symb_ans);
